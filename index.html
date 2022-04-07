@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--
+    Plain-Academic by Vasilios Mavroudis
+    Released under the Simplified BSD License/FreeBSD (2-clause) License.
+    https://github.com/mavroudisv/plain-academic
+-->
+
+<html lang="en">
+<head>
+  <title>ECCV 2022 Computer Vision in the Wild Workshop</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/simple.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css' />
+  <style>
+      .center-cropped {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 50%;
+      }
+  </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="headertext">
+            <div class="title"> ECCV 2022 Computer Vision in the Wild Workshop </div>
+        </div>
+    </div>
+<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+	  <div class="container">
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+				  <li><a href="#overview">Workshop Overview</a></li>
+          <li><a href="subpage/dataset.html">Dataset</a></li>
+				  <li><a href="#challenge">Challenge</a></li> 
+				  <li><a href="#schedule">Schedule</a></li> 
+				  <li><a href="#speakers">Invited Speakers</a></li> 
+				  <li><a href="#committee">Advisory Committee</a></li> 
+				  <li><a href="#organizers">Organizers</a></li> 
+		  </ul>
+		</div>
+	  </div>
+	</nav>
+  
+  <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <!-- Entries Column -->
+            <div class="col-md-12">
+                <!-- <h2 id="overview">Workshop Overview</h2> -->
+                <div style="font-family: sans-serif; font-size: 24px;">
+                <div style="margin-top:3%; text-align:justify;">
+                <h2 id="overview">Overview</h2>
+		<p>State-of-the-art CV systems are trained to predict a fixed set of predetermined object categories. This restricted form of supervision limits their generality and usability since additional labeled data is needed to specify any other visual concept. </p>
+		<p>Recent works, such as <a href="https://openai.com/blog/clip/"> CLIP </a>, <a href="https://ai.googleblog.com/2021/05/align-scaling-up-visual-and-vision.html"> ALIGN </a> and <a href="https://arxiv.org/abs/2111.11432"> Florence </a>  for image classification, and <a href="https://arxiv.org/abs/2104.13921"> ViLD </a>, <a href="https://arxiv.org/abs/2112.09106"> RegionCLIP </a> and <a href="https://arxiv.org/abs/2112.03857"> GLIP </a> for object detection, show that learning from large-scale image-text data is a promising approach to achieve open-vocabulary CV models. These vision models with language interface also show superior zero-shot and few-shot adaption performance on various real-world tasks.</p>
+        <p>We propose this "Computer Vision in the Wild" workshop, aiming to gather academic and industry communities to work on CV problems in real-world scenarios, focusing on the challenge of open vocabulary vision tasks and efficient domain adaption. </p>
+		<p>Since there is no established benchmarks to measure the progress of "CV in the wild", we develop two new benchmarks for: 1) classification and 2) detection, to measure the adaption efficiency of various models/methods over diverse real-world datasets. This workshop will host two challenges, based on these two benchmarks, respectively.</p>
+                </div>
+                </div>
+           </div>
+           <div class="col-md-12">
+              <div style="font-family: sans-serif; font-size: 24px;">
+              <div style="margin-top:3%; text-align:justify;">
+                <h2 id="challenge">CV in the Wild Challenges</h2>
+                  <p>
+                    There are two challenges associated to this workshop: "Image Classification in the Wild" (ICinW) and "Object Detection in the Wild" (ODinW). We summarize their evaluation datasets and metrics in the table below.
+                  </p>
+
+                  <p>
+                    To prevent a race purely in pre-training data and model size, we will have two tracks in both challenges.
+                  </p>
+
+                  <p>
+                    For the academic track, pre-training data is limited to ImageNet22k, Objects365 and CC15M.
+                  </p>
+
+                  <p>
+                    For the industry track, there is no limitation on pre-training data and model size. Teams are required to disclose meta info of model and data if extra data is used.
+                  </p>
+
+                  <p>
+                    Our evaluation codes are to be released.
+                    The evaluation codes can be downloaded <a href="https://github.com/eccv2022-cvinw/??/"> here </a> for local usage by participants.
+                    We use CodaLab as our evaluation server <a href="https://competitions.codalab.org/competitions/???"> link </a>.
+                  </p>
+
+                <ul>
+                  <li>Evaluation datasets and metrics for two challenges. *Pre-training data for the academic track, beyond which meta information of extra data should be disclosed.</li>
+                  <table style="width:80%">
+                    <tr>
+                      <th width="10%">Challenge</th>
+                      <th width="20%">Eval Datasets</th>
+                        <th width="35%">Eval Metrics</th>
+                        <th width="35%">Pretraining data*</th>
+                    </tr>
+                    <tr>
+                      <td>ICinW</td>
+                      <td>21 IC datasets</td>
+                      <td>averaged n-shot accuracy</td>
+                        <td>ImageNet22k+CC15M</td>
+                    </tr>
+                    <tr>
+                      <td>ODinW</td>
+                      <td>14 OD datasets</td>
+                      <td>averaged n-shot accuracy</td>
+                        <td>Objects365+CC15M</td>
+                    </tr>
+                  </table>
+                </ul>
+
+              </div>
+              </div>
+           </div>
+
+           <div class="col-md-12">
+                <h2 id="schedule">Important dates</h2>
+                <h3>
+                <ul>
+                  <li>June 15th: Workshop registration available</li>
+                  <li>July 25th: Competition starts, testing phase begins</li>
+                  <li>Sep 30th: Competition ends (challenge paper submission - optional)</li>
+                    <li>TBD: Workshop paper submission deadline</li>
+                    <li>TBD: Workshop paper acceptance decision to authors</li>
+                </ul>
+                </h3>
+           </div>
+
+
+           <div class="col-md-12">
+                <h2 id="speakers">Invited Speakers</h2>
+                  <p>
+                    To be announced.
+                  </p>
+           </div>
+
+           <div class="col-md-12">
+                <h2 id="committee">Advisory Committee</h2>
+                <div class="row">
+                  <div class="col-lg-3">
+                      <img src="https://www2.eecs.berkeley.edu/Faculty/Photos/Fullsize/darrell.jpg" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="https://www.leizhang.org/assets/images/leizhang.jpg" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="https://people.ece.uw.edu/bio_photos/hwang-20211025.jpg" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="https://pages.cs.wisc.edu/~yongjaelee/IMAGES/yongjae.jpg" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                </div>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <h3><a href="https://people.eecs.berkeley.edu/~trevor/">Prof. Trevor Darrell</a></h3>
+                  </div>
+                  <div class="col-lg-3">
+                    <h3><a href="https://www.leizhang.org/">Dr. Lei Zhang</a></h3>
+                  </div>
+                  <div class="col-lg-3">
+                    <h3><a href="https://people.ece.uw.edu/hwang/">Prof. Jenq-Neng Hwang</a></h3>
+                  </div>
+                  <div class="col-lg-3">
+                    <h3><a href="https://pages.cs.wisc.edu/~yongjaelee/">Prof. Yong Jae Lee</a></h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-3">
+                      <img src="https://scholar.googleusercontent.com/citations?view_op=view_photo&user=j7MW4iYAAAAJ&citpid=8" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="https://www.microsoft.com/en-us/research/uploads/prod/2021/04/OfficialXD1-4-scaled.jpg" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                </div>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <h3><a href="http://people.csail.mit.edu/celiu/">Dr. Ce Liu</a></h3>
+                  </div>
+                  <div class="col-lg-3">
+                    <h3><a href="https://www.microsoft.com/en-us/research/people/xdh/">Dr. Xuedong Huang</a></h3>
+                  </div>
+                </div>
+        </div>
+        <div class="col-md-12">
+                <h2 id="organizers">Organizers</h2>
+                <div class="row">
+                  <div class="col-lg-3">
+                      <img src="https://raw.githubusercontent.com/pzzhang/pzzhang/master/assets/img/prof_pic-480.webp" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="https://chunyuan.li/assets/resized/chunyl-1400x1349.jpeg" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="http://jyotianeja.com/files/jyoti_display_pic.JPG" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="https://media-exp1.licdn.com/dms/image/C5603AQFCcuWmUpBU9g/profile-displayphoto-shrink_200_200/0/1516858379551?e=1654732800&v=beta&t=q7NgpdgosWPXRbuEy6x7KKgjJLCqi4nxS6dayKpgHos" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                </div>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <h4><a href="https://pzzhang.github.io/pzzhang/">Pengchuan Zhang</a>, Microsoft</h4>
+                  </div>
+                  <div class="col-lg-3">
+                    <h4><a href="https://chunyuan.li/">Chunyuan Li</a>, Microsoft</h4>
+                  </div>
+                  <div class="col-lg-3">
+                    <h4><a href="http://jyotianeja.com/">Jyoti Aneja</a>, Microsoft</h4>
+                  </div>
+                  <div class="col-lg-3">
+                    <h4><a href="https://www.linkedin.com/in/pingjin1">Ping Jin</a>, Microsoft</h4>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3">
+                      <img src="https://jwyang.github.io/images/profile.png" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="https://xinw.ai/assets/images/photo.JPG" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="img/Houdong_profile.png" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="https://www.microsoft.com/en-us/research/wp-content/uploads/2017/03/avatar_user__1490216903-360x360.jpg" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                </div>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <h4><a href="https://jwyang.github.io/">Jianwei Yang</a>, Microsoft</h4>
+                  </div>
+                  <div class="col-lg-3">
+                    <h4><a href="https://xinw.ai/">Xin Wang</a>, Microsoft</h4>
+                  </div>
+                  <div class="col-lg-3">
+                    <h4><a href="https://www.linkedin.com/in/houdong-hu-08334227">Houdong Hu</a>, Microsoft</h4>
+                  </div>
+                  <div class="col-lg-3">
+                    <h4><a href="https://www.microsoft.com/en-us/research/people/zliu/">Zicheng Liu</a>, Microsoft</h4>
+                  </div>
+               </div>
+
+                <div class="row">
+                  <div class="col-lg-3">
+                      <img src="https://liunian-harold-li.github.io/img/harold_cropped.jpeg" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="http://web.cs.ucla.edu/~kwchang/img/myphoto.jpg" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-3">
+                      <img src="https://www.microsoft.com/en-us/research/uploads/prod/2020/09/20191101_170350330_iOS-4.jpg" width="60%" height="auto" style="border-radius: 50%">
+                  </div><!-- /.col-lg-4 -->
+                </div>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <h4><a href="https://liunian-harold-li.github.io/">Liunian Li</a>, UCLA</h4>
+                  </div>
+                  <div class="col-lg-3">
+                    <h4><a href="http://web.cs.ucla.edu/~kwchang/">Kai-Wei Chang</a>, UCLA</h4>
+                  </div>
+                  <div class="col-lg-3">
+                    <h4><a href="https://www.microsoft.com/en-us/research/people/jfgao/">Jianfeng Gao</a>, Microsoft</h4>
+                  </div>
+               </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+    
+    <!-- Other people may like it too! -->
+    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
+
+    <footer style="background-color:#444; color:#fdfdfd; padding:40px 0;">
+        <p style="text-align:center; font-family: sans-serif; font-size: 14px;">
+          Workshop and Challenge questions?<br/>
+          Email <a href="eccv2022cvinw@outlook.com">eccv2022cvinw@outlook.com</a><br/>
+          Microsoft Research Deep Learning Team
+        </p>
+    </footer>
+    
+</body>
+
+</html>

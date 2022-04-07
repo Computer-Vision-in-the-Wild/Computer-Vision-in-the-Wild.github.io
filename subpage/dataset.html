@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!--
+    Plain-Academic by Vasilios Mavroudis
+    Released under the Simplified BSD License/FreeBSD (2-clause) License.
+    https://github.com/mavroudisv/plain-academic
+-->
+
+<html lang="en">
+<head>
+  <title>ICCV 2021 Multi-camera Multiple People Tracking Workshop</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/simple.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css' />
+  <style>
+      .center-cropped {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 50%;
+      }
+  </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="headertext">
+            <div class="title"> ICCV 2021 Multi-camera Multiple People Tracking Workshop </div>
+        </div>
+    </div>
+<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+	  <div class="container">
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+				  <li><a href="../index.html#overview">Workshop Overview</a></li>
+                  <li><a href="#dataset">Dataset</a></li>
+				  <li><a href="../index.html#challenge">Challenge</a></li> 
+				  <li><a href="../index.html#schedule">Schedule</a></li> 
+				  <li><a href="../index.html#speakers">Invited Speakers</a></li> 
+				  <li><a href="../index.html#committee">Advisory Committee</a></li> 
+				  <li><a href="../index.html#organizers">Organizers</a></li> 
+		  </ul>
+		</div>
+	  </div>
+	</nav>
+  
+  <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <!-- Entries Column -->
+            <div class="col-md-12">
+                <!-- <h2 id="overview">Workshop Overview</h2> -->
+                <div style="font-family: sans-serif; font-size: 24px;">
+                <div style="margin-top:3%; text-align:justify;">             
+                <h2 id="introduction">Introduction</h2>
+		            <p>
+                        Multi-camera Multiple People Tracking (MMPTRACK) dataset has around 5 hour 
+                        videos for training and 1.5 hour videos for validation. 
+                        The dataset is fully annotated with person bounding boxes and corresponding person id. 
+                        All videos are recorded with cameras placed in different angle at the scene, with guaranteen that
+                        all cameras field of view are connected (one camera has overlapped FoV with at least one of the other cameras). 
+                        field of view and are well calibrated. 
+                        All the videos are collected inside Microsoft indoor labs where we built 5 simulated environments,
+                        retail, lobby, industry, cafe and office. 
+                        We asked total 28 persons to participate in recording (14 in training, 7 in validation and 7 in testing). 
+                        All people were paid and signed agreement to release their data to public for research usage. All participants are in various age, gender and race groups. 
+                    </p>
+                    <p>
+                        We also provide the ID annotations cross the 5 simulated environments of MMPTRACK for retrieval evaluation, denoted as MMP-Retrieval.
+                    </p>
+                </div>
+                </div>
+           </div>
+
+           <div class="col-md-12">
+                <div style="font-family: sans-serif; font-size: 24px;">
+                <div style="margin-top:3%; text-align:justify;">             
+                <h2 id="file_description">Description of available files</h2>
+                    <p>
+                        Currently we provide:
+                        <ul>
+                            <li>
+                                Synchronized frames extracted from videos with 15FPS, 640x320 resolution. The filename 
+                                is formatted as <code>rgb_[frameid]_[cameraid].jpg</code>
+                            </li>
+                            <li>
+                                Calibration files with Pinhole mode. We provide both extrinsic and intrinsic parameters
+                                for each camera, as well as space size of the environment and voxel size we used to discretesize the space.
+                            </li>
+                            <li>
+                                Two types of groud-truth annotations, bounding box annotations for each camera view 
+                                (<code>rgb_[frameid]_[cameraid].json</code>) and annotations for person footpoint in 
+                                discretesize coordinate in world coordinates system (<code>topdown_[frame_id].csv</code>).
+
+                                <pre>
+                                    # bounding box annotations for camera view, json format
+                                    {
+                                        "4": [478, 40, 630, 206]
+                                        ...
+                                        'id': [l, t, r, b],
+                                        ...
+                                    }
+
+                                    # person footpoint annotations, csv format
+                                    4,	253,	139,	904.15
+                                    ...
+                                    id, x, y, z(ignore)
+                                    ...
+                                </pre>
+
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+                </div>
+                <p class="lead">
+                    Visualization code and calibration file usage can be found 
+                    <a href="https://github.com/iccv2021-mmp/mmp-tracking-helper/">here</a>.
+                </p>
+            </div>
+
+           <div class="col-md-12">
+                <h2 id="download">Dataset Download</h2>
+                <p class="lead">
+                    The datasets can only be used for research purpose. 
+                    The recipient of the datasets must agree to <a href="../attachments/MMPTracking User Agreement.docx">terms and conditions</a>.
+                </p>
+                <p class="lead">
+                    <ul>
+                    <li>If you are interested in downloading the MMPTRACK dataset,
+                    please <a href="../attachments/MMPTracking User Agreement.docx">download and sign the dataset usage Terms and Conditions</a> 
+                    and <a href="mailto:iccv2021mmp@outlook.com?subject=MMPTracking Challenge data request&amp">email back to us at iccv2021mmp@outlook.com</a>. 
+                    <p />
+                    Any personal data submitted with the form is subject to the <a href="https://privacy.microsoft.com/en-us/privacystatement"> Microsoft Privacy Statement</a>.</li>
+                    <li>
+                        If you need the MMP-Retrieval labels used in paper [1], please specify this request in your email.
+</p>
+[1] Huang, Zhipeng, et al. "Lifelong Unsupervised Domain Adaptive Person Re-identification with Coordinated Anti-forgetting and Adaptation." In CVPR, 2022.
+                    </li>
+                    </ul>
+
+                </p>
+            </div>
+
+           <div class="col-md-12">
+                <!-- <h2 id="overview">Workshop Overview</h2> -->
+                <div style="font-family: sans-serif; font-size: 24px;">
+                <div style="margin-top:3%; text-align:justify;">             
+                <h2 id="visualization">Sample Videos Visualization</h2>
+                    <iframe width="853" height="480"
+                    src="https://www.youtube.com/embed/d37aNuhbNNo?autoplay=0&mute=1">
+                    </iframe>
+
+                    <iframe width="853" height="480"
+                    src="https://www.youtube.com/embed/tGOrfn5ETM4?autoplay=0&mute=1">
+                    </iframe>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <h2 id="download">Dataset Citation</h2>
+                <p class="lead">
+                    Please cite the following paper when using our benchmark.
+                </p>
+                <p class="lead">
+                    <b>MMPTRACK: Large-scale Densely Annotated Multi-camera Multiple People Tracking Benchmark.</b> <a href="https://arxiv.org/abs/2111.15157">arXiv:2111.15157</a>
+                </p>
+                <pre>
+    @misc{han2021mmptrack,
+        title={MMPTRACK: Large-scale Densely Annotated Multi-camera Multiple People Tracking Benchmark}, 
+        author={Xiaotian Han and Quanzeng You and Chunyu Wang and Zhizheng Zhang and Peng Chu and Houdong Hu and Jiang Wang and Zicheng Liu},
+        year={2021},
+        eprint={2111.15157},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV}
+    }
+                </pre>
+            </div>
+        
+        </div>
+
+    </div>
+    <!-- /.container -->
+    
+    <!-- Other people may like it too! -->
+    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
+
+    <footer style="background-color:#444; color:#fdfdfd; padding:40px 0;">
+        <p style="text-align:center; font-family: sans-serif; font-size: 14px;">
+          Workshop and Challenge questions?<br/>
+          Email <a href="iccv2021mmp@outlook.com">iccv2021mmp@outlook.com</a><br/>
+          Microsoft Azure Computer Vision Team
+        </p>
+    </footer>
+    
+</body>
+
+</html>

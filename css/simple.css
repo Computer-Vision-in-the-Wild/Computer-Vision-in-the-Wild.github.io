@@ -1,0 +1,45 @@
+.header{
+    background-image:url(../img/PreviewImage.png);
+    height:400px;
+    background-repeat:repeat;
+    background-position:right center;
+    background-size: auto 100%;
+}
+.headertext{
+    width:100%;
+    margin:auto
+}
+
+.title {
+  text-align:center;
+  font-size:75px;
+  font-weight:800;
+  font-family:Helvetica;
+  color:white;
+  padding-top:100px;
+  margin-bottom:10px;
+  text-shadow: 8px 8px 16px #000000;
+}
+
+.subtitle {
+  text-align:center;
+  font-size:24px;
+  font-family:Helvetica;
+  color:white;
+  border-top:3px solid white;
+  border-bottom:3px solid white;
+  margin:auto;
+  width:720px;
+}
+
+.code {
+  font-family: Consolas,"courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+  padding: 2px;
+  font-size: 100%;
+}
+
+table, th, td {
+  border:1px solid black;
+}
